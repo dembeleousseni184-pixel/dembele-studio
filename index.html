@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dembele Studio | Agence Web & Création Visuelle Premium</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#10b981',
+                            hover: '#059669',
+                            dark: '#020617',
+                            surface: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries CSS (AOS Animation) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Lucide Icons & FontAwesome -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-brand-dark text-slate-100 antialiased selection:bg-brand-green selection:text-brand-dark overflow-x-hidden">
+
+    <!-- Navbar d'Agence Glassmorphic -->
+    <header class="fixed top-0 w-full glass-nav z-50 border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="/static/img/logo.jpeg" alt="Dembele Studio" class="h-10 w-auto rounded-xl object-contain border border-slate-700/50 group-hover:border-brand-green transition">
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-brand-green transition">Dembele Studio</span>
+                    <span class="text-[10px] tracking-widest uppercase text-slate-400 font-semibold">Digital & Visual Agency</span>
+                </div>
+            </a>
+            
+            <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-slate-300">
+                <a href="#accueil" class="hover:text-brand-green transition">Accueil</a>
+                <a href="#expertises" class="hover:text-brand-green transition">Services</a>
+                <a href="#portfolio" class="hover:text-brand-green transition">Portfolio & Inspo</a>
+                <a href="#apropos" class="hover:text-brand-green transition">L'Agence</a>
+                <a href="#contact" class="hover:text-brand-green transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- Bouton Bascule Clair / Sombre -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-brand-green transition flex items-center justify-center">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+
+                <a href="https://wa.me/2250544580183" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-xl text-sm font-semibold hover:bg-brand-green hover:text-brand-dark transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+                </a>
+                <a href="#contact" class="px-5 py-2.5 bg-brand-green hover:bg-brand-hover text-brand-dark font-bold rounded-xl text-sm shadow-lg shadow-emerald-500/20 transition">
+                    Lancer un Projet
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section avec Animations GSAP/AOS -->
+    <section id="accueil" class="relative pt-36 pb-24 md:pt-48 md:pb-36 max-w-7xl mx-auto px-6 hero-gradient">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/90 border border-brand-green/30 rounded-full text-xs font-semibold text-brand-green">
+                    <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>
+                    Disponible pour de nouvelles missions Freelance & Agence
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                    Transformez vos idées en <span class="text-gradient">Expériences Digitales</span> et Visuels d'Impact.
+                </h1>
+
+                <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
+                    Dembele Studio fusionne le design graphique haut de gamme (branding, affiches, visuels) et le développement web robuste (FastAPI, Python, Tailwind) pourpropulser votre marque.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#contact" class="px-8 py-4 bg-brand-green hover:bg-brand-hover text-brand-dark font-extrabold rounded-xl shadow-xl shadow-emerald-500/25 flex items-center gap-3 transition transform hover:scale-105">
+                        <i data-lucide="send" class="w-5 h-5"></i> Demander un Devis Gratuit
+                    </a>
+                    <a href="#portfolio" class="px-8 py-4 glass-panel hover:bg-slate-800 text-white font-semibold rounded-xl border border-slate-700 flex items-center gap-3 transition">
+                        <i data-lucide="eye" class="w-5 h-5 text-brand-green"></i> Explorer la Galerie
+                    </a>
+                </div>
+
+                <!-- Live Badges -->
+                <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-white tracking-tight" id="counter-projects">0</h4>
+                        <p class="text-xs text-slate-400 mt-1">Projets Livrés</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white tracking-tight" id="counter-satisfaction">0</h4>
+                        <p class="text-xs text-slate-400 mt-1">Taux de Satisfaction</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white tracking-tight">24/7</h4>
+                        <p class="text-xs text-slate-400 mt-1">Support Client Direct</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal Visual/Showcase Card -->
+            <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="glass-panel p-6 rounded-3xl glow-card relative z-10 border border-slate-800">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">dembele-studio-v2.py</span>
+                    </div>
+
+                    <div class="space-y-4 font-mono text-sm">
+                        <div class="flex items-center gap-2 text-slate-400">
+                            <span class="text-brand-green">➜</span>
+                            <span>services.init()</span>
+                        </div>
+                        <div class="p-4 bg-slate-950/80 rounded-xl border border-slate-800 text-xs space-y-2">
+                            <p class="text-emerald-400">[✓] Design Graphique & Branding Premium</p>
+                            <p class="text-emerald-400">[✓] Dével. Python / FastAPI / Databases</p>
+                            <p class="text-emerald-400">[✓] CVs Professionnels International</p>
+                            <p class="text-emerald-400">[✓] Montage & Vidéos Publicitaires</p>
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-slate-400 pt-2">
+                            <span>Status: <span class="text-brand-green font-bold">Prêt pour mission</span></span>
+                            <span>WhatsApp: <span class="text-white">+225 05 44 58 01 83</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-brand-green/10 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services & Prestations -->
+    <section id="expertises" class="py-24 bg-slate-950 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-green font-semibold text-sm uppercase tracking-widest">Solutions Sur-Mesure</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-3">Nos Services & Expertises</h2>
+                <p class="text-slate-400 mt-4 text-base">Chaque prestation est conçue pour apporter une réelle valeur ajoutée à votre entreprise ou votre profil professionnel.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="palette" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Design Graphique & Branding</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Conception d'identités visuelles complètes, logos vectoriels, affiches événementielles, flyers promotionnels et contenus captivants pour vos réseaux sociaux.
+                    </p>
+                    <a href="#contact" onclick="setService('Design Graphique & Branding')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Demander un devis design <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="code" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Développement Web & App POS</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Création de sites vitrines, portfolios, et logiciels de gestion commerciale (POS, stocks) développés avec FastAPI, SQLite, HTML5 et Tailwind CSS.
+                    </p>
+                    <a href="#contact" onclick="setService('Développement Web & Apps')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Lancer un projet web <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="file-text" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">CVs Professionnels & Rédaction</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Conception de Curriculum Vitae haut de gamme, modèles modernes, créatifs et administratifs conformes aux standards internationaux de recrutement.
+                    </p>
+                    <a href="#contact" onclick="setService('Création de CV Professionnel')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Commander un CV <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="video" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Vidéos Publicitaires & Motion</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Montage vidéo promotionnel, spots publicitaires animés pour produits ou entreprises, et formats vidéos optimisés pour TikTok, Instagram et Facebook.
+                    </p>
+                    <a href="#contact" onclick="setService('Vidéo Publicitaire & Motion')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Commander une vidéo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="cpu" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Solutions Informatiques & Logiciels</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Automatisation de tâches via scripts Python, configuration de serveurs Linux, bases de données et intégration de solutions numériques d'entreprise.
+                    </p>
+                    <a href="#contact" onclick="setService('Solution Informatique Sur-Mesure')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Consulter un expert <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-panel p-8 rounded-3xl glow-card border border-slate-800/80" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="repeat" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Accompagnement & Partenariats</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Sous-traitance technique et créative pour agences, suivi long terme de vos projets digitaux et conseil en stratégie de communication visuelle.
+                    </p>
+                    <a href="#contact" onclick="setService('Partenariat ou Collaboration')" class="inline-flex items-center gap-2 text-sm font-bold text-brand-green hover:underline">
+                        Proposer un partenariat <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio Interactif & Réalisations -->
+    <section id="portfolio" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+            <div>
+                <span class="text-brand-green font-semibold text-sm uppercase tracking-widest">Vitrine de Réalisations</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-3">Portfolio & Créations Visuelles</h2>
+            </div>
+            
+            <!-- Filtres de catégories -->
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                <button class="filter-btn active px-4 py-2 rounded-xl bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-wider transition" data-filter="all">Tous</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="affiches">Affiches & Branding</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="cv">CVs Professionnels</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="dev">Apps & Logiciels</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="videos">Vidéos Pub</button>
+            </div>
+        </div>
+
+        <!-- Grille des Projets -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Projet Dev : Demshop POS -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="dev" data-aos="fade-up">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="Demshop POS" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-green text-brand-dark text-xs font-bold rounded-lg shadow">Développement Web</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Demshop POS & Inventaire</h4>
+                    <p class="text-slate-400 text-xs mb-4">Logiciel de gestion commerciale et de caisse sur-mesure développé avec FastAPI, SQLite et Tailwind CSS.</p>
+                    <button onclick="openModal('Demshop POS', 'Système complet de gestion de caisse et d’inventaire pour commerces.', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Détails du projet <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. Affiche Commerciale / Événementielle -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="affiches" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31243964d0?w=800&auto=format&fit=crop&q=80" alt="Affiche Commerciale" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-lg shadow">Affiche Publicitaire</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Affiche Corporate & Événementielle</h4>
+                    <p class="text-slate-400 text-xs mb-4">Création de visuels percutants, affiches promotionnelles et bannières haut de gamme pour entreprises et marques.</p>
+                    <button onclick="openModal('Affiche Publicitaire', 'Visuel promotionnel conçu sur-mesure pour capter l’attention du public cible.', 'https://images.unsplash.com/photo-1542744094-3a31243964d0?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Agrandir l'affiche <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. CV Professionnel -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="cv" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=80" alt="CV Professionnel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-lg shadow">CV Exécutif</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Modèle de CV Moderne & International</h4>
+                    <p class="text-slate-400 text-xs mb-4">Conception de Curriculum Vitae professionnels, créatifs et administratifs adaptés aux standards des recruteurs.</p>
+                    <button onclick="openModal('CV Professionnel', 'Mise en page épurée et professionnelle pour valoriser votre parcours.', 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Voir le modèle <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. Vidéo Publicitaire -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="videos" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format&fit=crop&q=80" alt="Vidéo Publicitaire" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-brand-green/90 text-brand-dark rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="play" class="w-6 h-6 fill-current"></i>
+                        </div>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-lg shadow">Spot Vidéo</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Spot Publicitaire & Motion Design</h4>
+                    <p class="text-slate-400 text-xs mb-4">Vidéos promotionnelles dynamiques pour présenter des services, applications ou produits d'entreprise.</p>
+                    <button onclick="openModal('Spot Vidéo Promotionnel', 'Présentation dynamique et montage publicitaire digital.', 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Lancer la démo <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5. Visuels Réseaux Sociaux & Affiches -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="affiches" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80" alt="Visuels Réseaux Sociaux" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-emerald-500 text-brand-dark text-xs font-bold rounded-lg shadow">Social Media Kit</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Visuels pour Réseaux Sociaux</h4>
+                    <p class="text-slate-400 text-xs mb-4">Conception graphique de bannières, posts et visuels marketing adaptés à Instagram, Facebook et LinkedIn.</p>
+                    <button onclick="openModal('Visuels Réseaux Sociaux', 'Kit complet de communication visuelle pour booster votre présence en ligne.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Agrandir le visuel <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6. Application Web Sur-Mesure -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="dev" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80" alt="Application Web" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-cyan-500 text-slate-950 text-xs font-bold rounded-lg shadow">Plateforme Web</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-bold text-white mb-2">Plateforme Web & Dashboard</h4>
+                    <p class="text-slate-400 text-xs mb-4">Intégration d'interfaces web dynamiques, ergonomiques et connectées à des backends performants.</p>
+                    <button onclick="openModal('Plateforme Web Sur-Mesure', 'Architecture full-stack moderne pour répondre aux besoins digitaux des entreprises.', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Détails du projet <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                <button class="filter-btn active px-4 py-2 rounded-xl bg-brand-green text-brand-dark font-bold text-xs uppercase tracking-wider transition" data-filter="all">Tous</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="affiches">Affiches & Visuels</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="cv">CVs Modernes</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="dev">Apps & Web</button>
+                <button class="filter-btn px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 font-semibold text-xs uppercase tracking-wider hover:border-brand-green transition" data-filter="videos">Vidéos Promo</button>
+            </div>
+        </div>
+
+        <!-- Disclaimers Notice -->
+        <div class="mb-8 p-4 bg-emerald-950/40 border border-emerald-500/30 rounded-2xl text-xs text-emerald-300 flex items-center gap-3">
+            <i data-lucide="info" class="w-5 h-5 flex-shrink-0"></i>
+            <span><strong>Note de transparence :</strong> Les éléments présentés ci-dessous combinent nos réalisations directes et des références visuelles internationales d'inspiration pour illustrer la qualité de nos prestations.</span>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Item 1: App Dev -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="dev" data-aos="fade-up">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center text-slate-700 bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="layout-grid" class="w-20 h-20 text-brand-green/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-green text-brand-dark text-xs font-bold rounded-lg">Logiciel POS</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">Demshop POS & Inventory</h4>
+                    <p class="text-slate-400 text-xs mb-4">Application de caisse et gestion de stock développée sous FastAPI, Jinja2 et Tailwind CSS.</p>
+                    <button onclick="openModal('Demshop POS', 'Système de gestion commerciale complet.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Examiner le projet <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 2: Affiche -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="affiches" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="image" class="w-20 h-20 text-purple-500/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-lg">Affiche Événementielle</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">Poster Corporate Premium</h4>
+                    <p class="text-slate-400 text-xs mb-4">Inspiration de design publicitaire moderne pour conférence et lancement de marque.</p>
+                    <button onclick="openModal('Poster Corporate', 'Affiche haute définition.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Agrandir le visuel <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 3: CV -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="cv" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="file-check-2" class="w-20 h-20 text-blue-500/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-lg">CV International</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">CV Exécutif & Tech</h4>
+                    <p class="text-slate-400 text-xs mb-4">Structure optimisée pour les recrutements internationaux et postes de direction.</p>
+                    <button onclick="openModal('CV Exécutif', 'Modèle de CV optimisé.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Voir le modèle <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 4: Vidéo -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="videos" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="play-circle" class="w-20 h-20 text-red-500/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-lg">Spot Vidéo Promo</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">Publicité Produit Animée</h4>
+                    <p class="text-slate-400 text-xs mb-4">Montage dynamique pour la promotion de services digitaux sur les réseaux.</p>
+                    <button onclick="openModal('Spot Vidéo', 'Démonstration vidéo motion design.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Regarder la démo <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 5: Affiche Promo -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="affiches" data-aos="fade-up" data-aos-delay="400">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="sparkles" class="w-20 h-20 text-emerald-500/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-emerald-500 text-brand-dark text-xs font-bold rounded-lg">Social Media Pack</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">Visuels Réseaux Sociaux</h4>
+                    <p class="text-slate-400 text-xs mb-4">Kit de communication visuelle pour campagnes marketing Instagram & Facebook.</p>
+                    <button onclick="openModal('Social Pack', 'Kit de visuels marketing.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Agrandir le visuel <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 6: Web Platform -->
+            <div class="portfolio-item glass-panel rounded-3xl overflow-hidden glow-card group border border-slate-800" data-category="dev" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative h-64 bg-slate-900 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-80"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-slate-900 group-hover:scale-110 transition duration-500">
+                        <i data-lucide="globe" class="w-20 h-20 text-cyan-500/30"></i>
+                    </div>
+                    <span class="absolute top-4 left-4 z-20 px-3 py-1 bg-cyan-500 text-slate-950 text-xs font-bold rounded-lg">Plateforme Sur-Mesure</span>
+                </div>
+                <div class="p-6 relative z-20">
+                    <h4 class="text-lg font-bold text-white mb-2">Portal Agence Web</h4>
+                    <p class="text-slate-400 text-xs mb-4">Architecture full-stack responsive avec interface d'administration dédiée.</p>
+                    <button onclick="openModal('Portal Web', 'Interface dynamique et scalable.', '/static/img/logo.jpeg')" class="text-brand-green font-semibold text-xs flex items-center gap-2 hover:underline">
+                        Examiner la démo <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section À Propos & Vision Agence -->
+    <section id="apropos" class="py-24 bg-slate-950 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <span class="text-brand-green font-semibold text-sm uppercase tracking-widest">L'Esprit Dembele Studio</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white">L'Alliance Unique entre Design & Ingénierie.</h2>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        Chez <strong>Dembele Studio</strong>, nous pensons qu'un excellent produit numérique doit être à la fois visuellement captivant et techniquement irréprochable.
+                    </p>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        Fort d'une solide expertise en développement web (Python, FastAPI, bases de données) et en création graphique (Branding, Canva, compositions visuelles), nous accompagnons les entreprises, entrepreneurs et professionnels dans la concrétisation de leurs projets.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-800">
+                            <h4 class="font-bold text-white mb-1 flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Rigueur Technique
+                            </h4>
+                            <p class="text-xs text-slate-400">Code propre, rapide et facilement évolutif.</p>
+                        </div>
+                        <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-800">
+                            <h4 class="font-bold text-white mb-1 flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Esthétique Soignée
+                            </h4>
+                            <p class="text-xs text-slate-400">Designs modernes adaptés à votre identité.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6" data-aos="fade-left">
+                    <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Nos Engagements Qualité</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span class="text-slate-300">Design Graphique & Branding</span>
+                                    <span class="text-brand-green">98%</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand-green w-[98%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span class="text-slate-300">Développement Python / FastAPI / Web</span>
+                                    <span class="text-brand-green">95%</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand-green w-[95%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span class="text-slate-300">Rédaction de CV & Supports Corporate</span>
+                                    <span class="text-brand-green">100%</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand-green w-[100%] rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80 text-xs text-slate-400 flex items-center justify-between">
+                            <span>Basé à Casablanca & disponible à l'international.</span>
+                            <span class="text-brand-green font-bold">Afrique & Europe</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact avec Transmission Automatique WhatsApp -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12">
+            
+            <!-- Informations Coordonnées -->
+            <div class="lg:col-span-5 space-y-8" data-aos="fade-right">
+                <div>
+                    <span class="text-brand-green font-semibold text-sm uppercase tracking-widest">Démarrons un Projet</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-3">Contactez Dembele Studio</h2>
+                    <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+                        Vous avez une demande de devis, une idée d'application ou besoin d'un visuel d'impact ? Remplissez le formulaire et votre demande me sera transmise instantanément sur WhatsApp.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- WhatsApp Principal -->
+                    <a href="https://wa.me/2250544580183" target="_blank" class="glass-panel p-5 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-green transition group">
+                        <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-brand-dark transition">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">WhatsApp Principal (Projets & Devis)</span>
+                            <span class="text-white font-bold text-base group-hover:text-brand-green transition">+225 05 44 58 01 83</span>
+                        </div>
+                    </a>
+
+                    <!-- Téléphone / Second WhatsApp -->
+                    <a href="tel:+212780220397" class="glass-panel p-5 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-green transition group">
+                        <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-brand-dark transition">
+                            <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">Téléphone & WhatsApp Direct</span>
+                            <span class="text-white font-bold text-base group-hover:text-brand-green transition">+212 7 80 22 03 97</span>
+                        </div>
+                    </a>
+
+                    <!-- Email Officiel -->
+                    <a href="mailto:ousseni.dembele@uvci.edu.ci" class="glass-panel p-5 rounded-2xl border border-slate-800 flex items-center gap-4 hover:border-brand-green transition group">
+                        <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 text-brand-green rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-brand-dark transition">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 block font-medium">Adresse Email Officielle</span>
+                            <span class="text-white font-bold text-sm group-hover:text-brand-green transition">ousseni.dembele@uvci.edu.ci</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formulaire de Devis Express -->
+            <div class="lg:col-span-7" data-aos="fade-left">
+                <form id="contact-form" class="glass-panel p-8 md:p-10 rounded-3xl border border-slate-800 space-y-6 relative">
+                    <h3 class="text-2xl font-bold text-white mb-2">Formulaire de Demande de Devis</h3>
+                    <p class="text-xs text-slate-400 mb-6">Les requêtes soumises ici génèrent automatiquement un récapitulatif prêt à envoyer sur notre WhatsApp principal.</p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Nom & Prénom *</label>
+                            <input type="text" name="name" required placeholder="Ex: Jean Koffi" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Adresse Email *</label>
+                            <input type="email" name="email" required placeholder="Ex: contact@entreprise.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Numéro Téléphone / WhatsApp *</label>
+                            <input type="tel" name="phone" required placeholder="Ex: +225 07 00 00 00 00" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Type de Prestation *</label>
+                            <select id="project_type" name="project_type" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm">
+                                <option value="Design Graphique & Branding">Design Graphique & Branding</option>
+                                <option value="Développement Web & Apps">Développement Web / Application POS</option>
+                                <option value="Création de CV Professionnel">Création de CV Professionnel</option>
+                                <option value="Vidéo Publicitaire & Motion">Vidéo Publicitaire & Motion</option>
+                                <option value="Solution Informatique Sur-Mesure">Solution Informatique Sur-Mesure</option>
+                                <option value="Partenariat ou Collaboration">Partenariat ou Collaboration</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Budget Estimatif (Facultatif)</label>
+                        <select name="budget" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm">
+                            <option value="Non spécifié">Sélectionner une tranche</option>
+                            <option value="Moins de 100.000 FCFA / 150 €">Moins de 100.000 FCFA / 150 €</option>
+                            <option value="100.000 - 300.000 FCFA / 150 € - 450 €">100.000 - 300.000 FCFA / 150 € - 450 €</option>
+                            <option value="Plus de 300.000 FCFA / 450 €+">Plus de 300.000 FCFA / 450 €+</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Description du Projet / Besoin *</label>
+                        <textarea name="description" rows="4" required placeholder="Décrivez les détails de votre besoin (objectifs, délais, préférences visuelles...)" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-brand-green hover:bg-brand-hover text-brand-dark font-extrabold rounded-xl shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-3 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Envoyer & Transmettre sur WhatsApp
+                    </button>
+
+                    <div id="form-status" class="hidden p-4 rounded-xl text-center text-xs font-bold"></div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Officiel -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800/80 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="/static/img/logo.jpeg" alt="Dembele Studio" class="h-8 w-auto rounded-lg">
+                <span class="font-bold text-white tracking-tight">Dembele Studio</span>
+            </div>
+            
+            <p class="text-xs text-center md:text-left">
+                &copy; 2026 Dembele Studio. Tous droits réservés. Propulsé avec FastAPI & Tailwind CSS.
+            </p>
+
+            <div class="flex items-center space-x-6 text-slate-400 text-base">
+                <a href="https://wa.me/2250544580183" target="_blank" class="hover:text-brand-green transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:ousseni.dembele@uvci.edu.ci" class="hover:text-brand-green transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:+212780220397" class="hover:text-brand-green transition"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modale de Visualisation Portfolio -->
+    <div id="portfolio-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel p-6 rounded-3xl max-w-2xl w-full border border-slate-800 space-y-4 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+            <p id="modal-desc" class="text-sm text-slate-400"></p>
+            <div class="h-64 bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-800 overflow-hidden">
+                <img id="modal-img" src="" alt="" class="max-h-full object-contain">
+            </div>
+            <div class="pt-4 flex justify-end">
+                <a href="#contact" onclick="closeModal()" class="px-6 py-2.5 bg-brand-green text-brand-dark font-bold text-xs rounded-xl">Demander une création similaire</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts Libraries & Custom JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
