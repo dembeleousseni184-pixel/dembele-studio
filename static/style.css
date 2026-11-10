@@ -1,159 +1,55 @@
-:root {
-    --bg-brand-dark: #0f172a;
-    --bg-card: #1e293b;
-    --text-main: #f8fafc;
-    --accent-green: #10b981;
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 body {
-    background-color: var(--bg-brand-dark);
-    color: var(--text-main);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-header {
-    background: rgba(15, 23, 42, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #334155;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #059669;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
+/* Glassmorphic Effects */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--accent-green);
+.glass-nav {
+    background: rgba(2, 6, 23, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
+/* Glow & Hover Animations */
+.glow-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.25);
+    border-color: rgba(16, 185, 129, 0.4);
 }
 
-.nav-links a {
-    color: var(--text-main);
-    text-decoration: none;
-    transition: color 0.3s;
+/* Background Gradients */
+.hero-gradient {
+    background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(2, 6, 23, 0) 70%);
 }
 
-.nav-links a:hover {
-    color: var(--accent-green);
-}
-
-.hero {
-    padding: 6rem 2rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    color: #94a3b8;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.btn-primary {
-    background-color: var(--accent-green);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    transition: opacity 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-.services {
-    max-width: 1100px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-
-.services h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2rem;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.service-card {
-    background-color: var(--bg-card);
-    padding: 2rem;
-    border-radius: 0.75rem;
-    border: 1px solid #334155;
-}
-
-.service-card h3 {
-    color: var(--accent-green);
-    margin-top: 0;
-}
-
-.contact {
-    max-width: 600px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: var(--bg-card);
-    border-radius: 0.75rem;
-    border: 1px solid #334155;
-}
-
-.contact h2 {
-    text-align: center;
-    margin-top: 0;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #475569;
-    background-color: #0f172a;
-    color: #fff;
-    font-size: 1rem;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #64748b;
-    border-top: 1px solid #334155;
-    margin-top: 4rem;
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
